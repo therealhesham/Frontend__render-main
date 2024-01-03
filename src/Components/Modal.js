@@ -46,7 +46,7 @@ function Modall({ open, handleClose, user  ,show }) {
       email:email,
       phone:phone
     }
-    axios.post("https://testbackend-ms7i.onrender.com/user/addUser",values, { withCredentials: true }).then((res)=>{
+    axios.post("https://testbackend-ms7i.onrender.com/addnew",values, { withCredentials: true }).then((res)=>{
       handleClose()
       show("Your request sent successfully", "success")
     }).catch((err)=>{
