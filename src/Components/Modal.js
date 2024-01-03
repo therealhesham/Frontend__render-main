@@ -38,16 +38,18 @@ function Modall({ open, handleClose, user  ,show }) {
   const handleChange = (event) => {
     setRole(event.target.value);
   };
-  const submit = ()=>{
+  const submit = async ()=>{
     let values ={
       role:role?role:"user",
       firstName:firstName,
+      
       lastName:lastName,
       email:email,
       phone:phone
     }
-    axios.post("https://testbackend-ms7i.onrender.com/addnew",values, { withCredentials: true }).then((res)=>{
-      handleClose()
+    await axios.post("https://testbackend-ms7i.onrender.com/addnew",values, { withCredentials: true }).then((res)=>{
+      console.log(res)
+    handleClose()
       show("Your request sent successfully", "success")
     }).catch((err)=>{
       console.log(err)
